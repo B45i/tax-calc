@@ -1,5 +1,5 @@
 <script>
-  let baseAmount = 0;
+  let baseAmount = 1000;
   let CGST = 9;
   let SGST = 9;
   let finalAmount = 0;
@@ -22,20 +22,22 @@
 <main>
   <div>
     <label for="base">Base Amount</label>
-    <input bind:value={baseAmount} type="number" placeholder="Base" id="base">
+    <input bind:value={baseAmount} type="number" placeholder="Base" id="base" min="1">
   </div>
 
   <div>
     <label for="cgst">
     CGST
     </label>
-    <input bind:value={CGST} type="number" placeholder="CGST" id="cgst">
+    <input bind:value={CGST} type="number" placeholder="CGST" id="cgst" min="1">
   </div>
+  <span>({Math.round(baseAmount * (CGST/100))} Rs)</span>
 
   <div>
     <label for="sgst">SGST</label>
-    <input bind:value={SGST} type="number" placeholder="SGST" id="sgst">
+    <input bind:value={SGST} type="number" placeholder="SGST" id="sgst" min="1">
   </div>
+  <span>({Math.round(baseAmount * (SGST/100))} Rs)</span>
 
 
   <div>
